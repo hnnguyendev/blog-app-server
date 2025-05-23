@@ -16,7 +16,7 @@
     -->
     <changeSet id="00000000000001" author="jhipster">
         <createTable tableName="jhi_user">
-            <column name="id" type="bigint">
+            <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="login" type="varchar(50)">
@@ -44,6 +44,7 @@
             </column>
             <column name="last_modified_by" type="varchar(50)"/>
             <column name="last_modified_date" type="timestamp"/>
+            <column defaultValueBoolean="false" name="deleted" type="boolean"/>
         </createTable>
 
         <createTable tableName="jhi_authority">
@@ -53,7 +54,7 @@
         </createTable>
 
         <createTable tableName="jhi_user_authority">
-            <column name="user_id" type="bigint">
+            <column name="user_id" type="uuid">
                 <constraints nullable="false"/>
             </column>
             <column name="authority_name" type="varchar(50)">
@@ -90,7 +91,7 @@
                   separator=";"
                   tableName="jhi_user"
                   usePreparedStatements="true">
-            <column name="id" type="numeric"/>
+            <column name="id" type="uuid"/>
             <column name="activated" type="boolean"/>
             <column name="created_date" type="timestamp"/>
         </loadData>
@@ -99,7 +100,7 @@
                   separator=";"
                   tableName="jhi_user_authority"
                   usePreparedStatements="true">
-            <column name="user_id" type="numeric"/>
+            <column name="user_id" type="uuid"/>
         </loadData>
         <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="${datetimeType}"/>
     </changeSet>

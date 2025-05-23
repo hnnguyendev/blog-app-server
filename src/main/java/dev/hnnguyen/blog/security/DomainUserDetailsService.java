@@ -4,6 +4,8 @@ import dev.hnnguyen.blog.domain.Authority;
 import dev.hnnguyen.blog.domain.User;
 import dev.hnnguyen.blog.repository.UserRepository;
 import java.util.*;
+
+import lombok.Getter;
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,17 +57,14 @@ public class DomainUserDetailsService implements UserDetailsService {
         return UserWithId.fromUser(user);
     }
 
+    @Getter
     public static class UserWithId extends org.springframework.security.core.userdetails.User {
 
-        private final Long id;
+        private final UUID id;
 
-        public UserWithId(String login, String password, Collection<? extends GrantedAuthority> authorities, Long id) {
+        public UserWithId(String login, String password, Collection<? extends GrantedAuthority> authorities, UUID id) {
             super(login, password, authorities);
             this.id = id;
-        }
-
-        public Long getId() {
-            return id;
         }
 
         @Override

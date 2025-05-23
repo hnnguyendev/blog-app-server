@@ -1,17 +1,25 @@
 package dev.hnnguyen.blog.service.dto;
 
 import dev.hnnguyen.blog.domain.User;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * A DTO representing a user, with only the public attributes.
  */
+@Setter
+@Getter
 public class UserDTO implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private UUID id;
 
     private String login;
 
@@ -23,22 +31,6 @@ public class UserDTO implements Serializable {
         this.id = user.getId();
         // Customize it here if you need, or not, firstName/lastName/etc
         this.login = user.getLogin();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     @Override
