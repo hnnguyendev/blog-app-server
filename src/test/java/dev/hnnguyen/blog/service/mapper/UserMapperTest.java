@@ -8,10 +8,8 @@ import dev.hnnguyen.blog.security.AuthoritiesConstants;
 import dev.hnnguyen.blog.service.dto.AdminUserDTO;
 import dev.hnnguyen.blog.service.dto.UserDTO;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +20,7 @@ import org.junit.jupiter.api.Test;
 class UserMapperTest {
 
     private static final String DEFAULT_LOGIN = "johndoe";
-    private static final Long DEFAULT_ID = 1L;
+    private static final UUID DEFAULT_ID = null;
 
     private UserMapper userMapper;
     private User user;

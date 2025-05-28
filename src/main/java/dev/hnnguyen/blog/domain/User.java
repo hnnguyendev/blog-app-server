@@ -2,6 +2,7 @@ package dev.hnnguyen.blog.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.hnnguyen.blog.config.Constants;
+import dev.hnnguyen.blog.domain.listener.UserEntityListener;
 import jakarta.persistence.Table;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -28,6 +29,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@EntityListeners(UserEntityListener.class)
 @Table(name = "jhi_user")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @SQLDelete(sql = "UPDATE jhi_user SET deleted = true WHERE id = ?")
@@ -61,6 +63,9 @@ public class User extends AbstractAuditingEntity<UUID> implements Serializable {
     @Size(max = 50)
     @Column(name = "last_name", length = 50)
     private String lastName;
+
+    @Column(name = "full_name")
+    private String fullName;
 
     @Email
     @Size(min = 5, max = 254)
@@ -102,6 +107,9 @@ public class User extends AbstractAuditingEntity<UUID> implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
+
+    @OneToMany(mappedBy = "author")
+    private Set<Post> posts = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {

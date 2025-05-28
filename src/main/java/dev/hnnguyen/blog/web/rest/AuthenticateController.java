@@ -110,19 +110,19 @@ public class AuthenticateController {
      */
     static class JWTToken {
 
-        private String idToken;
+        private String accessToken;
 
-        JWTToken(String idToken) {
-            this.idToken = idToken;
+        JWTToken(String accessToken) {
+            this.accessToken = accessToken;
         }
 
-        @JsonProperty("id_token")
-        String getIdToken() {
-            return idToken;
+        @JsonProperty("accessToken")
+        String getAccessToken() {
+            return accessToken;
         }
 
-        void setIdToken(String idToken) {
-            this.idToken = idToken;
+        void setAccessToken(String accessToken) {
+            this.accessToken = accessToken;
         }
     }
 }

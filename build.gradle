@@ -170,6 +170,7 @@ dependencies {
 
     implementation 'org.projectlombok:lombok:1.18.38'
     annotationProcessor 'org.projectlombok:lombok:1.18.38'
+    implementation 'com.google.code.gson:gson:2.13.1'
 }
 
 task cleanResources(type: Delete) {
