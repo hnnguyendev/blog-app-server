@@ -34,7 +34,7 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping("/public")
-    public ResponseEntity<List<ResponseBlogPost>> getAllBlogPosts(@SortDefault(sort = "p.lastModifiedDate", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<List<ResponseBlogPost>> getAllBlogPosts(@SortDefault(sort = "p.publishedDate", direction = Sort.Direction.DESC) Pageable pageable) {
         log.debug("REST request to get all Post for blog page");
         final Page<ResponseBlogPost> page = postService.getAllBlogPosts(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);

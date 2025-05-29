@@ -21,7 +21,7 @@ public interface PostRepository extends JpaRepository<Post, UUID>, PostRepositor
 
     @Query("""
             SELECT new dev.hnnguyen.blog.domain.dto.post.ResponseBlogPost(
-                p.id, p.title, p.description, p.heroImage, a.fullName, a.imageUrl, p.lastModifiedDate, p.slug
+                p.id, p.title, p.description, p.heroImage, a.fullName, a.imageUrl, p.publishedDate, p.slug
             )
             FROM Post p
             JOIN p.author a
