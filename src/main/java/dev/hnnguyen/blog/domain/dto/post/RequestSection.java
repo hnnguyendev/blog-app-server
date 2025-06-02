@@ -4,6 +4,7 @@ import dev.hnnguyen.blog.domain.enums.SectionTypeEnum;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @NoArgsConstructor
@@ -30,4 +31,6 @@ public class RequestSection {
     private String mediaUrl;
 
     private String textContent;
+
+    private List<RequestSectionFile> sectionFiles;
 }

@@ -50,6 +50,10 @@ spring:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
     cache: false
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
 
 server:
   port: 8080
@@ -105,3 +109,17 @@ jhipster:
 # ===================================================================
 
 # application:
+# AWS properties
+cloud:
+  region: us-east-1
+  stack:
+    auto: false
+  credentials:
+    accessKey:
+    secretKey:
+  bucket:
+    name:
+  preSigned:
+    url-expiration: 120 #seconds
+  provider: aws
+  cloudfront-url:
