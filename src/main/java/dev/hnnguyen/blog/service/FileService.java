@@ -20,6 +20,10 @@ public class FileService {
         return uploadFile(multipartFile, "PostImages", true);
     }
 
+    public String uploadAvatar(MultipartFile multipartFile) {
+        return uploadFile(multipartFile, "Avatars", true);
+    }
+
     public String uploadPostFile(MultipartFile multipartFile) {
         return uploadFile(multipartFile, "PostFiles", true);
     }

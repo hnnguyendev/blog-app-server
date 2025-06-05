@@ -38,6 +38,15 @@ public class FileController {
         return new ResponseEntity<>(new ResponseFileUrl(url), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/avatar", consumes = {"multipart/form-data"})
+    public ResponseEntity<ResponseFileUrl> uploadAvatar(@RequestPart(value = "file") @Valid @FileRequireCheck @FileMaxSizeCheck(max = 5)
+                                                        @FileTypeCheck(allowedFileTypes = {JPG, JPEG, PNG, HEIF, HEIC, GIF, SVG, BMP, WEBP, TIF, TIFF, ICO})
+                                                        MultipartFile file
+    ) {
+        String url = fileService.uploadAvatar(file);
+        return new ResponseEntity<>(new ResponseFileUrl(url), HttpStatus.OK);
+    }
+
     @PostMapping(value = "/file", consumes = {"multipart/form-data"})
     @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<ResponseFileUrl> uploadFile(@RequestPart(value = "file") @Valid @FileRequireCheck @FileMaxSizeCheck(max = 25) MultipartFile file
