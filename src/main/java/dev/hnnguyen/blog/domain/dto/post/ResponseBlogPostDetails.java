@@ -43,9 +43,11 @@ public class ResponseBlogPostDetails implements Serializable {
 
     private String imageUrl;
 
+    private String website;
+
     private Instant lastUpdated;
 
-    public ResponseBlogPostDetails(UUID id, String title, PostStatusEnum status, String description, String heroImage, String authorName, String imageUrl, Instant lastUpdated) {
+    public ResponseBlogPostDetails(UUID id, String title, PostStatusEnum status, String description, String heroImage, String authorName, String imageUrl, String website, Instant lastUpdated) {
         this.id = id;
         this.title = title;
         this.status = status;
@@ -53,6 +55,7 @@ public class ResponseBlogPostDetails implements Serializable {
         this.heroImage = heroImage;
         this.authorName = authorName;
         this.imageUrl = imageUrl;
+        this.website = website;
         this.lastUpdated = lastUpdated;
     }
 }

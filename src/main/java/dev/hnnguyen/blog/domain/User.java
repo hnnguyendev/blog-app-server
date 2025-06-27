@@ -97,6 +97,9 @@ public class User extends AbstractAuditingEntity<UUID> implements Serializable {
     @Column(name = "reset_date")
     private Instant resetDate = null;
 
+    @Column(name = "website")
+    private String website;
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -137,6 +140,7 @@ public class User extends AbstractAuditingEntity<UUID> implements Serializable {
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
+            ", website='" + website + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +

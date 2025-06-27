@@ -30,6 +30,7 @@ public class PostMapper {
             post.getHeroImage(),
             Objects.nonNull(post.getAuthor()) ? post.getAuthor().getFullName() : null,
             Objects.nonNull(post.getAuthor()) ? post.getAuthor().getImageUrl() : null,
+            Objects.nonNull(post.getAuthor()) ? post.getAuthor().getWebsite() : null,
             post.getLastModifiedDate()
         );
 
